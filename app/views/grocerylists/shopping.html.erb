@@ -2,13 +2,11 @@
 <h2 class="page-title">Grocery List</h2>
 <div class="page-content">
   <br>
-  <%= link_to "Manage List", user_grocerylist_path(current_user.id, id: @grocery_list.id), class: "btn btn-success"  %><br><br>
+  <%= link_to "Manage List", user_grocerylist_path(current_user.id, id: @grocery_list.id), class: "btn btn-success" %><br><br>
   <ul class="grocery-list">
     <% @list_items.each do |ingredient| %>
-      <li class="grocery-item well">
-        <%= check_box_tag(:seclected) %>
-        <b class="name"><%= ingredient.name %>
-        <%# link_to("", user_grocerylist_path(current_user.id,  id: params[:id], ingredient_id: ingredient.id), method: 'delete', class: "glyphicon glyphicon-trash") %>
+        <li class="grocery-item well">
+          <label for="checkedoff-<%= ingredient.id %>"><input type="checkbox" id="checkedoff-<%= ingredient.id %>" name="selected"> <%= ingredient.name %></label>
       </li>
     <% end %>
   </ul>
