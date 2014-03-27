@@ -19,7 +19,7 @@
       <section class="add-options">
         <section class="add-to-schedule">
           <%= form_tag("/users/#{current_user.id}/scheduled_recipes/#{@recipe.id}", class: "form", method: 'post') do %>
-            <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday']])) %>
+            <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'],['Saturday','saturday'],['Sunday','sunday']])) %>
             <%= submit_tag("Add to My Week",class: "btn btn-default") %><br><br>
           <% end %>
         </section>
@@ -61,7 +61,7 @@
             <br>
             <% @health_labels.each do |label| %>
               <div class="health-label">
-                <%= label.label_name %> 
+                <%= label.label_name %>
               </div>
             <% end %>
           </div><!--tags-->
@@ -69,9 +69,9 @@
       </div><!--.row-->
     </div>
 <% end %>
-  
-  
-     
+
+
+
   </section>
 </div>
 </div>
