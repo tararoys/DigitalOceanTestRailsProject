@@ -57,6 +57,7 @@ label {
 #banner {
   display:none;
   margin:0;
+  text-align:center;
 }
 
 .content {
@@ -334,6 +335,7 @@ input,
 }
 
 @media screen and (min-width:850px) {
+
   .full-recipe .ingredients-list {
     float:left;
     max-width:350px;
