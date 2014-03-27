@@ -18,7 +18,7 @@ class ScheduledRecipesController < ApplicationController
 
   def create
     ScheduledRecipe.create(recipe_params)
-    redirect_to user_recipes_path
+    redirect_to user_scheduled_recipes_path
   end
 
   def destroy
