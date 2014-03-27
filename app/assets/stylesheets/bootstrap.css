@@ -5037,6 +5037,7 @@ a.list-group-item-danger.active:focus {
 }
 #edit_user i {color:#ddd;}
 .well,
+#new_user,
 #edit_user,
 .edit_user {
   min-height: 20px;

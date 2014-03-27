@@ -52,7 +52,6 @@ line-height: 1.42857143;
 /*background-color: #060606;*/
 border:1px solid #000;
 /*border-radius: 4px;*/
-float:right;
 -webkit-transition: all 0.2s ease-in-out;
 transition: all 0.2s ease-in-out;
 display: inline-block;
@@ -102,11 +101,7 @@ height: auto;
   padding-bottom:0;
 }
 
-.add-to-week,
-.add-to-grocery-list {
 
-  float:left;
-}
 .add-to-week .btn {
   margin-top:0;
 }
@@ -137,11 +132,12 @@ height: auto;
 footer {margin-top:3em;}
 .days-recipe .btn-default {
   margin-right:1em;
+  margin-bottom:1em;
 }
 .days-recipe .btn-default a {
   color:#fff !important;
 }
-ul.grocery-list {margin-left: 0 !important; padding-left:0 !important;}
+ul.grocery-list {margin-left: 0 !important; padding-left:0 !important; margin-bottom}
 .full-recipe .labels {
   margin-left:3%;
   width:47%;
@@ -334,7 +330,7 @@ section.content.thing {
 }
 
 .grid-list form {
-  display:inline-block;
+  /*display:inline-block;*/
 }
 
 .grid-list h3 a ,
@@ -376,16 +372,24 @@ section.content.thing {
   /*padding:10px;*/
   margin-left:1em;
   border-radius:10px;
+  display:inline;
+  width:auto;
+}
+.add-to-week .form-control {
+    display:inline;
+  width:70%;
+
 }
 .add-to-week.inline-form {
   text-align:center;
   margin:0 auto;
-  width:90%;
+  /*width:90%;*/
+
 }
 .health-label {display:inline-block;}
 .add-to-week .btn.btn-info {
-  padding:5px;
-  margin-top:-5px;
+  padding:7px;
+  /*margin-top:-5px;*/
 }
 body {padding-left:0%; padding-right:0%;}
 
@@ -468,12 +472,7 @@ body {padding-left:0%; padding-right:0%;}
 }
 @media screen and (min-width:500px) {
   .grid-list li {width:48%; display:inline-block;}
-  .add-to-week,
-.add-to-schedule {
-  width:43%;
-  float:left;
-  clear:none;
-}
+
 
 }
 
