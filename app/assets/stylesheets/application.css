@@ -17,11 +17,7 @@
 * {border-radius:0 !important;}
 body {
   width:auto;
- /* margin:0 5%;*/
- /* max-width:2000px;*/
-
 }
-
 img {
   max-width:100%;
   display:block;
@@ -148,15 +144,7 @@ input,
 .grid-list .item {
   padding:1em;
 }
-/*
-.grid-list .item:hover {
 
-      -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
-}*/
 
 .grid-list .thumbnail {
   background:#333;
@@ -308,6 +296,9 @@ input,
 
 @media screen and (min-width: 600px) {
   #banner {display:block;}
+  #banner {
+    text-align:center;
+  }
   form {
     max-width:550px;
   }
@@ -388,4 +379,4 @@ div.health-label {
   border-radius:25px !important; 
 }
 
-
+}
