@@ -82,6 +82,11 @@ height: auto;
   width:auto;
 
 }
+.checked#selected {
+  display:inline;
+  position:relative;
+  width:25px;
+}
 .tags {
   float:right;
   max-width:300px;
