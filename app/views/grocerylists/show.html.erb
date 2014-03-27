@@ -7,7 +7,7 @@
     <ul class="grocery-list">
       <% @list_items.each do |ingredient| %>
         <li class="grocery-item well">
-          <b class="name"><%= ingredient.name %>
+          <b class="name"><%= ingredient.name %></b>
           <%= link_to("", user_grocerylist_path(current_user.id,  id: params[:id], ingredient_id: ingredient.id), method: 'delete', class: "glyphicon glyphicon-trash") %>
         </li>
       <% end %>

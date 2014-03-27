@@ -6,7 +6,9 @@ $(document).ready(function() {
   $(".item").on("ajax:success", "form.remove-recipe", function(e, data, status, xhr) {
     $(this).closest(".item").html($(data.collected_recipe_html).html())
   });
-})
+
+});
+
 
 // $(function() {
 //   var pathName = window.location.pathname;

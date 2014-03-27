@@ -5035,7 +5035,10 @@ a.list-group-item-danger.active:focus {
 .panel-danger > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #bd001f;
 }
-.well {
+#edit_user i {color:#ddd;}
+.well,
+#edit_user,
+.edit_user {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
