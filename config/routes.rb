@@ -4,7 +4,7 @@ TestRailsOnDigitalOcean::Application.routes.draw do
   resources :users do
     get '/recipes', to: 'user_recipes#index'
     resources :recipes, only: [:show]
-    resources :collected_recipes, only: [:create]
+    resources :collected_recipes, only: [:create, :destroy]
     resources :grocerylists, only: [:show, :create, :destroy]
     get '/grocerylists/:grocery_list_id/shopping', to: "grocerylists#shopping", as: "shoppinglist"
     resources :scheduled_recipes, only: [:index, :destroy]
