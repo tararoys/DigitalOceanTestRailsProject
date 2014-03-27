@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require ./bootstrap.js
 //= require_tree ./app
+
+$(function() {
+  var pathName = window.location.pathname;
+  var regex = /\/users\/\d\/([A-z]+).*/;
+  var idUrlName = pathName.replace(regex, "_\$1");
+
+    $("#" + idUrlName).parent().addClass('active');
+
+});
