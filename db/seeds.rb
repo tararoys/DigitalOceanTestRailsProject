@@ -214,8 +214,8 @@ user.recipes << Recipe.find(10)
 # RecipeIngredient.create(ingredient_id: Ingredient.all.to_a.sample.id, recipe_id: recipe_5.id, ingredient_quantity: 100 * 1, measuring_unit: "g")
 # RecipeIngredient.create(ingredient_id: Ingredient.all.to_a.sample.id, recipe_id: recipe_5.id, ingredient_quantity: 100 * 2, measuring_unit: "g")
 
-grocery_list = GroceryList.create(user_id: user.id, name: "Grocery List")
-
+# grocery_list = GroceryList.create(user_id: user.id, name: "Grocery List")
+grocery_list = User.first.grocery_list
 grocery_list.recipes << Recipe.find(1)
 grocery_list.recipes << Recipe.find(2)
 grocery_list.ingredients << Recipe.find(1).ingredients

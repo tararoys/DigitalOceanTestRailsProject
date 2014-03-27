@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
   has_many :collected_recipes, foreign_key: :collector_id
   has_many :recipes, through: :collected_recipes
 
+  after_create :create_grocery_list
+
+  def create_grocery_list
+    GroceryList.create(user_id: self.id, name: "GroceryList")
+  end
 end
