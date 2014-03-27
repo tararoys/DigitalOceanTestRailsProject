@@ -1,77 +1,90 @@
-  <div class="row">
     <h2 class="page-title"><%= @recipe.name %></h2>
-    <br>
-    <div class="row well">
-      <section class="ingredients item">
-        <div class="img-thumbnail"><img src="<%= @recipe.img_path %>" alt="<%= @recipe.name %>" title="<%= @recipe.name %>"></div>
-        <h3>Ingredients</h3>
-          <ul class="ingredient-list">
-            <% @ingredients.each do |ingredient| %>
-              <li class="ingredient"><%= ingredient.name %></b></li>
-            <% end %>
-          </ul>
-        </div>
-      </section>
-    </div><!--.row-->
-  <% if user_signed_in? %>
-  <div class="row well">
-    <div class="col-md-6">
-      <section class="add-options">
-        <section class="add-to-schedule">
-          <%= form_tag("/users/#{current_user.id}/scheduled_recipes/#{@recipe.id}", class: "form", method: 'post') do %>
-            <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'],['Saturday','saturday'],['Sunday','sunday']])) %>
-            <%= submit_tag("Add to My Week",class: "btn btn-default") %><br><br>
-          <% end %>
-        </section>
-      </section>
-    </div><!--.col-md-6-->
-    <div class="col-md-6">
-      <section class="add-to-grocery-list">
-        <%= link_to("Add to Grocery List", user_grocerylists_path(current_user.id,  recipe_id: @recipe.id), method: 'post',class: "btn btn-success") %>
-      </section>
-    </div><!--.col-md-6-->
-  </div><!--row-->
-  <% end %>
-  <div class="row">
-    <div class="col-md-12">
-      <section class="instructions">
-        <h3>Prep Instructions: </h3>
-        <p>Find the full instructions for <a href="<%= @recipe.directions %>" target="_blank"><%= @recipe.name %> at <%= @instructions_domain %></a></p>
-      </section>
-    </div>
-  </div><!--row-->
-      <% if @nutrition_info %>
-      <div class="row">
-        <div class="col-md-6">
-          <section class="nutrition-info well">
-            <h3 id="nutrition-title" style="color:white">Nutrition Information</h3>
-            <table class="table table-striped table-bordered table-condensed nutrition-info-table"><tbody><tr><td colspan="2"><p><b>Servings</b>: <%= @recipe.serving_size %> </p>
-            <h4>Per Serving:</h4></td></tr>
-              <tr class="headers"><th>Ingredient</th><th>Amount</th></tr>
-              <% @nutrition_info.each do |nutrient| %>
-               <tr><th><%= nutrient.name.capitalize %></th><td><%= nutrient.value.round(2) %><%= nutrient.unit %></td></tr>
+      <div class="row well">
+        <div class="col-sm-7 col-lg-8">
+          
+          <section class="ingredients item">
+            <h3>Ingredients</h3>
+            <ul class="ingredient-list">
+              <% @ingredients.each do |ingredient| %>
+                <li class="ingredient"><%= ingredient.name %></b></li>
               <% end %>
-              </tbody>
-            </table>
+            </ul>
           </section>
-        </div><!--.col-md-6-->
-        <div class="tagswell well col-md-6">
-          <div id="tags">
-            <h3 id="nutrition-title" style="color:white">Health Labels</h3>
-            <br>
+          <section class="instructions">
+            <h3>Prep Instructions: </h3>
+            <p>Find the full instructions for <a href="<%= @recipe.directions %>" target="_blank"><%= @recipe.name %> at <%= @instructions_domain %></a></p>
+          </section>
+          <section class="tags tagswell">
             <% @health_labels.each do |label| %>
               <div class="health-label">
                 <%= label.label_name %>
               </div>
             <% end %>
-          </div><!--tags-->
-        </div><!--col-md-6-->
+          </section><!--tags tagswell-->
+        </div><!--col md- 7-->
+
+       <div class="col-sm-5 col-lg-4">
+        <section class="ingredients item">
+          <div class="img-thumbnail"><img src="<%= @recipe.img_path %>" alt="<%= @recipe.name %>" title="<%= @recipe.name %>"></div>
+        </section>
+       <% if user_signed_in? %>
+        <section class="add-to-schedule add-options">
+          <%= form_tag("/users/#{current_user.id}/scheduled_recipes/#{@recipe.id}", class: "form form-inline", method: 'post', class: "form") do %>
+            <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'],['Saturday','saturday'],['Sunday','sunday']]), class: "form-control") %>
+            <%= submit_tag("Add to My Week",class: "form-control") %><br><br>
+          <% end %>
+           
+        </section>
+        <section class="add-to-week">
+          <%= link_to("Add to Grocery List", user_grocerylists_path(current_user.id,  recipe_id: @recipe.id), method: 'post',class: "btn btn-success form-control") %>
+        </section>
+
+      <% end %>
+
+      </div><!--col-md-5-->
+    </div><!--row well-->
+
+
+
+      
+    
+
+
+      <% if @nutrition_info %>
+      <div class="row">
+
+        <div class="col-sm-7">
+
+          <section class="nutrition-info">
+            <table class="table table-striped table-bordered table-condensed nutrition-info-table"><tbody>
+              <tr><td colspan="2">
+                <h4>Nutrition Information (per serving):</h4>
+                <p><b>Servings</b>: <%= @recipe.serving_size %></p>
+              </td></tr>
+              <tr class="headers"><th>Ingredient</th><th>Amount</th></tr>
+                <% @nutrition_info[0..11].each do |nutrient| %>
+                 <tr><th><%= nutrient.name.capitalize %></th><td><%= nutrient.value.round(2) %><%= nutrient.unit %></td></tr>
+                <% end %>
+              </tbody>
+            </table>
+          </section>
+        </div><!--.col-md-6-->
+
+        <div class="col-sm-5 nutrition-info">
+            <table cellpadding="5" class="table table-striped table-bordered table-condensed nutrition-info-table"><tbody>
+              <tr><td colspan="2">
+                <h5>Additional Nutrients (per serving)</h5>
+              </td></tr>
+              <tr class="headers"><th>Ingredient</th><th>Amount</th></tr>
+              <% @nutrition_info[12..-1].each do |nutrient| %>
+               <tr><th><%= nutrient.name.capitalize %></th><td><%= nutrient.value.round(2) %><%= nutrient.unit %></td></tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        
       </div><!--.row-->
-    </div>
-<% end %>
+    <% end %>
 
 
 
-  </section>
-</div>
-</div>

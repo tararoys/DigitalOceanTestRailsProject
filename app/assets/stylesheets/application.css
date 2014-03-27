@@ -67,13 +67,17 @@ height: auto;
   vertical-align:middle;
   padding-bottom:1em;
 }
+.add-to-schedule,
+.add-to-grocery-list {
+  position:relative;
+}
 .nutrition-info .table-striped.table-bordered tbody tr.headers th {
   background:#2a9fd6;
   padding:1em;
-  max-width:300px;
+  /*max-width:300px;*/
 }
 .nutrition-info .table-striped.table-bordered tbody tr th {
-  font-weight:normal !important;
+  /*font-weight:normal !important;*/
 }
 .grocery-item.well input {
   margin-right:5px;
@@ -89,30 +93,33 @@ height: auto;
 .grocery-list b, input[type="checkbox"]{
   display:inline-block;
 }
-.nutrition-info table.table-striped.table-striped {
-  /*width:auto;*/
 
-}
-
-.tags {
-  float:right;
-  max-width:300px;
-}
 
 .add-options,
 .add-to-schedule,
 .add-to-grocery-list {
-  display:inline-block;
+  display:inline;
   padding-bottom:0;
 }
 
-.add-to-schedule .btn {
-  /*vertical-align: baseline !important;*/
-  margin-top:0 !important;
-  /*padding-top:0 !important;*/
+.add-to-week,
+.add-to-grocery-list {
+
+  float:left;
 }
-.add-options {
-  overflow:hidden;
+.add-to-week .btn {
+  margin-top:0;
+}
+.add-to-week {
+  margin:0 auto;
+}
+
+.nutrition-information table {
+  padding:1em;
+}
+.nutrition-information table td,
+.nutrition-information table th{
+  padding:1em;
 }
 .btn-default .glyphicon-trash {
   color:#2a9fd6 !important;
@@ -307,6 +314,7 @@ input,
   -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
 }
+
 section.content.thing {
   padding-right:0;
 }
@@ -361,10 +369,12 @@ section.content.thing {
   z-index:2;
   color:#fff;
 }
+
 .add-to-week {
   /*background:#000;*/
   margin:0 auto;
-  padding:10px;
+  /*padding:10px;*/
+  margin-left:1em;
   border-radius:10px;
 }
 .add-to-week.inline-form {
@@ -372,11 +382,13 @@ section.content.thing {
   margin:0 auto;
   width:90%;
 }
+.health-label {display:inline-block;}
 .add-to-week .btn.btn-info {
   padding:5px;
   margin-top:-5px;
 }
 body {padding-left:0%; padding-right:0%;}
+
 .logged-in .grid-list .overlays .right {
   position:absolute;
   right:0;
@@ -456,6 +468,13 @@ body {padding-left:0%; padding-right:0%;}
 }
 @media screen and (min-width:500px) {
   .grid-list li {width:48%; display:inline-block;}
+  .add-to-week,
+.add-to-schedule {
+  width:43%;
+  float:left;
+  clear:none;
+}
+
 }
 
 @media screen and (min-width: 600px) {
@@ -489,7 +508,7 @@ body {padding-left:0%; padding-right:0%;}
     max-width:300px;
   }
   .add-to-grocery-list {
-  float:right;
+  /*float:right;*/
 }
 }
 
