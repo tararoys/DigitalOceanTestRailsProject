@@ -3,7 +3,7 @@
           <h3><%= link_to "#{recipe.name}", recipe_path(recipe) %></h3>
           <!-- begin icon overlays -->
           <div class="img overlays">
-            
+
             <% if user_signed_in? %>
 
       <% if current_user.recipes.include?(recipe) %>
@@ -27,24 +27,24 @@
               <!-- missing favorites form in favorites partial -->
 
               <!-- add to weeks partial -->
-              
 
-          
-          
+
+
+
           <% end %><!-- user singed in -->
           <p class="img-thumbnail"><img src="<%= recipe.img_path %>" alt="<%= recipe.name %>" title="<%= recipe.name %>"></p>
         </div><!-- .image-overlays -->
 
         <% if user_signed_in? %>
           <div class="add-to-week">
-            <%= form_tag("/users/#{current_user.id}/scheduled_recipes/#{recipe.id}", class: "form inline-form", method: 'post') do %>
+            <%= form_tag(user_scheduled_recipe_path(current_user.id, recipe.id), class: "form inline-form", method: 'post') do %>
               <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'], ['Saturday', 'saturday'], ['Sunday', 'sunday']])) %>
               <%= submit_tag("Add", class: "btn btn-info") %>
             <% end %>
           </div><!-- .add-to-week-->
         <% end %><!-- user signed in -->
 
-          
-        
+
+
         </article>
       </li>
