@@ -2,7 +2,8 @@
 <h2 class="page-title">Grocery List</h2>
 <div class="page-content">
   <% if current_user.grocery_list %>
-    <%= link_to "Shopping Mode", user_shoppinglist_path(user_id: current_user.id, grocery_list_id: @grocery_list.id) %>
+  <br>
+    <%= link_to "Shopping Mode", user_shoppinglist_path(user_id: current_user.id, grocery_list_id: @grocery_list.id), class: "btn btn-success" %><br><br>
     <ul class="grocery-list">
       <% @list_items.each do |ingredient| %>
         <li class="grocery-item well">

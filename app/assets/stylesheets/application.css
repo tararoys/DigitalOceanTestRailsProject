@@ -21,14 +21,125 @@ body {
  /* max-width:2000px;*/
 
 }
-
+.brand {font-size:1.5em;}
+h2.page-title,
+h2 {color:#ff8800; font-size:2.5em; }
 img {
   max-width:100%;
   display:block;
 }
+.ingredients {
+  overflow:hidden;
+}
+.ingredients .img-thumbnail {
+border: 0;
+padding: 0;
+position: relative;
+
+display: inline-block;
+margin: 0 0 10px;
+border: 1px solid #000;
+-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+-moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
+padding: 4px;
+line-height: 1.42857143;
+/*background-color: #060606;*/
+border:1px solid #000;
+/*border-radius: 4px;*/
+float:right;
+-webkit-transition: all 0.2s ease-in-out;
+transition: all 0.2s ease-in-out;
+display: inline-block;
+max-width: 100%;
+height: auto;
+}
 .hidden {
   display:none;
 }
+.add-options.well {
+  width:100%;
+  vertical-align:middle;
+  padding-bottom:1em;
+}
+.nutrition-info .table-striped.table-bordered tbody tr.headers th {
+  background:#2a9fd6;
+  padding:1em;
+  max-width:300px;
+}
+.nutrition-info .table-striped.table-bordered tbody tr th {
+  font-weight:normal !important;
+}
+.nutrition-info .table-striped.table-bordered tbody tr td,
+.nutrition-info .table-striped.table-bordered tbody tr th {
+  padding:0.5em;
+  line-height:2em;
+  vertical-align:middle;
+  font-weight:normal !important;
+  /*width:100px;*/
+}
+.nutrition-info table.table-striped.table-striped {
+  width:auto;
+
+}
+.tags {
+  float:right;
+  max-width:300px;
+}
+
+.add-options,
+.add-to-schedule,
+.add-to-grocery-list {
+  display:inline-block;
+  padding-bottom:0;
+}
+.add-to-grocery-list {
+  float:right;
+}
+.add-to-schedule .btn {
+  /*vertical-align: baseline !important;*/
+  margin-top:0 !important;
+  /*padding-top:0 !important;*/
+}
+.add-options {
+  overflow:hidden;
+}
+.days-recipe .btn-default .glyphicon-trash {
+  color:#2a9fd6 !important;
+  padding:0.3em;
+}
+.days-recipe .btn-default .glyphicon-trash:hover {
+  text-decoration:none;
+  color:red !important;
+}
+.days-recipe .btn-default a {
+  color:#fff !important;
+}
+ul.grocery-list {margin-left: 0 !important; padding-left:0 !important;}
+.full-recipe .col-md-6 {
+  width:48%;
+  margin-right:2%;
+}
+.add-to-grocery-list a {
+  color:#fff;
+  text-decoration:none;
+  margin-bottom:0;
+}
+
+.ingredient-list {
+  margin:0; padding:0;
+  list-style:none;
+}
+#tags {
+  margin-top:2em;
+}
+#tags .health-label {
+  padding:1em;
+}
+.nutrition-info h3 {
+  margin-top:0;
+}
+
 .navbar-brand i ,
 h1 i,
 .navbar-default .navbar-nav li.dropdown .dropdown-toggle {
