@@ -18,7 +18,7 @@
     <section class="add-options well">
   <section class="add-to-schedule">
     <%= form_tag("/users/#{current_user.id}/scheduled_recipes/#{@recipe.id}", class: "form", method: 'post') do %>
-      <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday']])) %>
+      <%= select_tag(:day, options_for_select([['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'], ['Saturday', 'saturday'], ['Sunday', 'sunday']])) %>
       <%= submit_tag("Add to My Week",class: "btn btn-info") %>
     <% end %>
   </section>
@@ -40,8 +40,8 @@
     <section class="nutrition-info">
 
       <h3 id="nutrition-title">Nutrition Information</h3>
-      
-      
+
+
         <table class="table table-striped table-bordered table-condensed nutrition-info-table"><tbody>
                     <tr><th colspan="2"><p><b>Servings</b>: <%= @recipe.serving_size %> </p>
       <h4>Per Serving:</h4></th></tr>
@@ -61,7 +61,7 @@
         <div id="tags">
          <% @health_labels.each do |label| %>
            <div class="health-label">
-            <%= label.label_name %> 
+            <%= label.label_name %>
           </div>
          <% end %>
        </div>
@@ -69,8 +69,8 @@
    </div>
  </div>
    <% end %>
-  
-  
-     
+
+
+
   </section>
 </div>
