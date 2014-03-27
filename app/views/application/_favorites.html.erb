@@ -1,0 +1,31 @@
+<% if favorited_checked?(recipe) %>
+                  <button>
+                    <span class="left glyphicon glyphicon-ok"></span>
+                  </button>
+              </span>
+            <% else %>
+              <!-- incorrect use of span, span is an inline element, consider div, section, article, etc. -->
+              <span class="add-opt">
+                <!-- Add to My week form -->
+                <form id="not-collected" method="post" action="/users/<%=current_user.id%>/collected_recipes?recipe=<%=recipe.id%>">
+                  <button class='add-recipe-button' id="not-collected-button" type="submit">
+                    <span class="left glyphicon glyphicon-plus-sign"></span>
+                  </button>
+                </form>
+                <!--  -->
+              </span>
+            <% end %>
+            <% if favorited_checked?(recipe) %>
+                <button>
+                     <span class="right glyphicon glyphicon-star faved"></span>
+                  </button>
+            <% else %>
+            <!-- Add to favorites form -->
+                <form method="post" action="/users/<%=current_user.id%>/collected_recipes?recipe=<%=recipe.id%>&favorite=true">
+                  <button class="add-favorite-recipe-button" type="submit">
+                     <span class="right glyphicon glyphicon-star not-faved"></span>
+                  </button>
+                </form>
+                <!--  -->
+              </span>
+            <% end %>
