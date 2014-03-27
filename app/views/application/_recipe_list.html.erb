@@ -21,12 +21,13 @@
                   </form>
                 </span>
               <% end %>
-              <% if current_user.recipes.exists?(recipe.id) && current_user.collected_recipes.where(recipe_id: recipe.id).first.favorite == true %>
+              <% if favorited_checked?(recipe) %>
                   <button>
                     <span class="left glyphicon glyphicon-ok"></span>
                   </button>
               </span>
             <% else %>
+              <!-- incorrect use of span, span is an inline element, consider div, section, article, etc. -->
               <span class="add-opt">
                 <!-- Add to My week form -->
                 <form id="not-collected" method="post" action="/users/<%=current_user.id%>/collected_recipes?recipe=<%=recipe.id%>">
@@ -37,7 +38,7 @@
                 <!--  -->
               </span>
             <% end %>
-            <% if current_user.recipes.exists?(recipe.id) && current_user.collected_recipes.where(recipe_id: recipe.id).first.favorite == true %>
+            <% if favorited_checked?(recipe) %>
                 <button>
                      <span class="right glyphicon glyphicon-star faved"></span>
                   </button>

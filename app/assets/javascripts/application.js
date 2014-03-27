@@ -13,6 +13,32 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function() {
+
+  $("#remove-recipe").on("submit", function(e) {
+    e.preventDefault()
+    
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
+    $.post(url, data, function(serverResponse, status, request){
+      // $removeForm.replaceWith($addForm);
+    });
+    $(this).find(".glyphicon").toggleClass("glyphicon-plus-sign").toggleClass("glyphicon-ok")
+    $("#remove-recipe").parent().replaceWith($("#add-recipe").parent());
+  })
+
+  $("#add-recipe").on("submit", function(e) {
+
+    e.preventDefault()
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
+    $.post(url, data, function(serverResponse, status, request){
+      $(this).find(".glyphicon").toggleClass("glyphicon-plus-sign").addClass("glyphicon-ok")
+      $("#remove-recipe").parent().replaceWith($("#add-recipe").parent());
+    });
+    // $(this).off("submit")
+  })
+})
 
 $(function() {
   var pathName = window.location.pathname;
@@ -20,6 +46,7 @@ $(function() {
   var idUrlName = pathName.replace(regex, "_\$1");
 
     $("#" + idUrlName).parent().addClass('active');
+
 
   // addButtonClassName = "left glyphicon glyphicon-plus-sign";
 
