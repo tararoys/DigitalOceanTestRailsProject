@@ -41,7 +41,7 @@ class GrocerylistsController < ApplicationController
     @grocery_list = GroceryList.find(params[:id])
     @grocery_list.ingredients.delete( Ingredient.find(params[:ingredient_id]))
     if @grocery_list.ingredients.all.empty?
-      @grocery_list.destroy
+      @grocery_list.recipes.destroy_all
     end
 
     redirect_to "/users/#{current_user.id}/grocerylists/#{@grocery_list.id}"
